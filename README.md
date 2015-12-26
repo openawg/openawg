@@ -9,6 +9,8 @@ TODO: automate this
 
 This is using https://github.com/jpetazzo/pipework and https://github.com/jpetazzo/pxe
 
+Not included is starting up the pxe docker container and using pipework to give it eth1 interface with 192.168.1.1/24
+
 ```
 LAUNCH THE DOCKER CONTAINER
 
