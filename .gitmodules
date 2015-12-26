@@ -4,3 +4,6 @@
 [submodule "docker/pipework"]
 	path = docker/pipework
 	url = git@github.com:jpetazzo/pipework.git
+[submodule "docker/pxe"]
+	path = docker/pxe
+	url = git@github.com:jpetazzo/pxe.git
