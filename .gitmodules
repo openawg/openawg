@@ -7,3 +7,6 @@
 [submodule "docker/pxe"]
 	path = docker/pxe
 	url = git@github.com:jpetazzo/pxe.git
+[submodule "software/u-boot"]
+	path = software/u-boot
+	url = git://git.denx.de/u-boot.git
