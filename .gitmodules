@@ -1,5 +1,5 @@
 [submodule "poky"]
-	path = poky
+	path = software/poky
 	url = git://git.yoctoproject.org/poky.git
 [submodule "docker/pipework"]
 	path = docker/pipework
