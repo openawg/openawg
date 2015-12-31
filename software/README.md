@@ -1,7 +1,43 @@
-## conf directory
+# Control System
+The AWG will be controlled by several Minnowboard Max boards (MMs).
+
+Each MM will:
+
+1. Be powered via PoE
+2. Be connected to a switch
+3. Run u-boot from SD card
+4. Have a NFSroot filesystem
+5. Run a minimal Yocto build
+6. Run an Elixir service publishing metrics from and controlling attached components
+
+## Boot process
+
+U-boot will get a DHCP lease and TFTP boot from the "brain", then mount a root filesystem from the "brain's" NFS service. Each MM's MAC address will determine the roles performed.
+
+## Brain server
+The brain server will be a MM with SSD running dnsmasq and NFS services for network booting and NFSroot filesystem.
+
+## Continuous Integration
+
+Concourse will run CI builds inside a docker container which has `/var/run/docker.sock` mounted from the host, allowing the container to launch sibling containers.
+
+The container will build the requirements and then launch sibling containers running the brain server and generated MM images in qemu machines.
+
+The containers will have the following interfaces:
+
+1. host docker0 bridged with guest eth0 interface
+2. docker eth1 interface bridged with host-only br0 bridge via pipework
+3. docker br1 interface bridged with docker eth1 interface and docker tap0 interface for qemu guests inside docker containers to communicate with other qemu guests running in other docker containers
+
+The sibling containers will run the generated u-boot binary in a qemu machine and follow the boot process listed above on the host-only br0 network.
+
+All guests should be able to route to the internet.
+
+### configuration
+#### conf directory
 Move `local.conf` into poky's `./build/conf/` directory after sourcing `oe-init-build-env` and before building yocto
 
-### docker and qemu network setup
+#### docker and qemu network setup
 TODO: automate this
 
 This is using https://github.com/jpetazzo/pipework and https://github.com/jpetazzo/pxe
