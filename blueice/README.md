@@ -1,4 +1,6 @@
 # BlueIce Alpha
+WARNING: This model is still being tested to certify production of potable water! Components in the dehumidifier may contain lead and other heavy metals which will make you go crazy and die.
+
 ![BlueIce Alpha](images/IMG_9957.jpg "BlueIce Alpha prototype")
 
 # Bill of Materials
