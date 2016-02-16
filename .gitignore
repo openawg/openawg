@@ -1,3 +1,4 @@
+# vim
 [._]*.s[a-w][a-z]
 [._]s[a-w][a-z]
 .*.swp
@@ -5,3 +6,30 @@
 Session.vim
 .netrwhist
 *~
+
+# Mac
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must end with two \r
+Icon
+
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
