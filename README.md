@@ -1,7 +1,7 @@
 # openawg
 Open source atmospheric water generator
 
-# current models
+# models
 [BlueIce Alpha](blueice)
 
 ## software directory
