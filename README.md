@@ -5,4 +5,4 @@ Open source atmospheric water generator
 [BlueIce Alpha](blueice)
 
 ## software directory
-This contains software related shit, refer to `./software/README.md`.
+This contains software related shit, refer to [./software/README.md](software)
