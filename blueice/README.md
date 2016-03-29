@@ -1,6 +1,8 @@
 # BlueIce Alpha
 WARNING: This model is still being tested to certify production of potable water! Components in the dehumidifier may contain lead and other heavy metals which will make you go crazy and die.
 
+Initial test results, and a write-up explaining the results are available here: [Fresh from the lab](https://openawg.github.io/2016/03/22/fresh-from-the-lab.html)
+
 ![BlueIce Alpha](images/IMG_9957.jpg "BlueIce Alpha prototype")
 
 # Bill of Materials
