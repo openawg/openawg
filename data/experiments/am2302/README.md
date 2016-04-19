@@ -1,5 +1,5 @@
 # test0
-First test chamber run to see if everything works
+First test chamber run of test chamber 0 to see if everything works
 
 # test1
 Freezer test with BeagleBone Black
