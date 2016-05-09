@@ -144,9 +144,10 @@ logger.debug('Sensors found: %s' % shared.number_sensors)
 
 
 def send(data):
+    json_data = json.dumps(data)
     with open(append_log, 'a') as outfile:
-        outfile.write(json.dumps(data) + '\n')
-    shared.metrics.put_nowait(data)
+        outfile.write(json_data + '\n')
+    shared.metrics.put_nowait(json_data)
 
 
 def metric_collector():
