@@ -1,0 +1,2 @@
+defmodule ShortBus do
+end
