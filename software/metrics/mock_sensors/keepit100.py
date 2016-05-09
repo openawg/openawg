@@ -1,7 +1,7 @@
 import time
 
 
-class KeepItOneHunna(object):
+class KeepIt100(object):
     def __init__(self, shared):
         self.shared = shared
 
