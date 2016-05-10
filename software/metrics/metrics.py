@@ -147,12 +147,14 @@ def send(data):
     json_data = json.dumps(data)
     with open(append_log, 'a') as outfile:
         outfile.write(json_data + '\n')
-    shared.metrics.put_nowait(json_data)
+    shared.metrics.put_nowait(data)
 
 
 def metric_collector():
     while 1:
         metric = shared.metrics.get()
+        json_data = json.dumps(metric)
+
 
         while 1:
             try:
@@ -163,7 +165,7 @@ def metric_collector():
                 r = requests.post(
                     args.host,
                     headers=headers,
-                    data=metric
+                    data=json_data
                 )
                 logger.debug('Status: %s Metric: %s' % (r.status_code, metric))
                 gevent.sleep()
