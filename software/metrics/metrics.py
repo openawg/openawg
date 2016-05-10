@@ -159,13 +159,14 @@ def metric_collector():
             try:
                 headers = {
                     'Content-type': 'application/json',
-                    'Accept': 'text/plain'
+                    'Accept': 'application/json'
                 }
                 r = requests.post(
                     args.host,
                     headers=headers,
                     data=json_data
                 )
+                logger.debug('Response: %s' % r.content)
                 logger.debug('Status: %s Metric: %s' % (r.status_code, metric))
                 gevent.sleep()
             except:

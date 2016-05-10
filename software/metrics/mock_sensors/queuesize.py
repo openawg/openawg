@@ -1,4 +1,5 @@
 import time
+from datetime import datetime
 
 
 class QueueSize(object):
@@ -7,7 +8,7 @@ class QueueSize(object):
 
     def collect(self):
         data = {
-            'time': time.time(),
+            'time': datetime.now().isoformat(),
             'name': 'queue.size',
             'value': self.shared.metrics.qsize()
         }
