@@ -155,7 +155,6 @@ def metric_collector():
         metric = shared.metrics.get()
         json_data = json.dumps(metric)
 
-
         while 1:
             try:
                 headers = {
