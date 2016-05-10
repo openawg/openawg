@@ -1,0 +1,5 @@
+%syntax-version=1.0.0
+%project=postgrest
+%uri=https://github.com/openawg/openawg
+
+data 2016-05-10T02:12:36Z Bobby Cox <bobby@cox.io> # Creates our data table
