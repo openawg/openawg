@@ -10,3 +10,6 @@
 [submodule "software/u-boot"]
 	path = software/u-boot
 	url = git://git.denx.de/u-boot.git
+[submodule "software/metrics/freeboard"]
+	path = software/metrics/freeboard
+	url = https://github.com/Freeboard/freeboard.git
