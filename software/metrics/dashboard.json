@@ -1,0 +1,104 @@
+{
+	"version": 1,
+	"allow_edit": true,
+	"plugins": [],
+	"panes": [
+		{
+			"width": 2,
+			"row": {
+				"3": 1
+			},
+			"col": {
+				"3": 1
+			},
+			"col_width": 3,
+			"widgets": [
+				{
+					"type": "text_widget",
+					"settings": {
+						"title": "mock.randint",
+						"value": [
+							"datasources[\"mock.randint\"][0][\"value\"]"
+						],
+						"sparkline": true,
+						"animate": true,
+						"units": "random"
+					}
+				},
+				{
+					"type": "text_widget",
+					"settings": {
+						"title": "api.latency_ms",
+						"size": "regular",
+						"value": [
+							"datasources[\"api.latency_ms\"][0][\"value\"]"
+						],
+						"sparkline": true,
+						"animate": true,
+						"units": "ms"
+					}
+				}
+			]
+		},
+		{
+			"width": 1,
+			"row": {
+				"3": 3
+			},
+			"col": {
+				"3": 2
+			},
+			"col_width": "2",
+			"widgets": [
+				{
+					"type": "text_widget",
+					"settings": {
+						"title": "api.latency_ms",
+						"value": [
+							"datasources[\"mock.randint\"][0][\"value\"]"
+						],
+						"sparkline": true,
+						"animate": true,
+						"units": "random"
+					}
+				}
+      ]
+		}
+	],
+	"datasources": [
+		{
+			"name": "mock.randint",
+			"type": "JSON",
+			"settings": {
+				"url": "http://localhost:3000/data?order=time.desc&name=eq.mock.randint",
+				"use_thingproxy": false,
+				"refresh": 1,
+				"method": "GET",
+				"headers": [
+					{
+						"name": "Range",
+						"value": "1-1"
+					}
+				],
+				"name": "mock.randint"
+			}
+		},
+		{
+			"name": "api.latency_ms",
+			"type": "JSON",
+			"settings": {
+				"url": "http://localhost:3000/data?order=time.desc&name=eq.api.latency_ms",
+				"use_thingproxy": true,
+				"refresh": 0.1,
+				"method": "GET",
+				"headers": [
+					{
+						"name": "Range",
+						"value": "1-1"
+					}
+				]
+			}
+		}
+	],
+	"columns": 3
+}

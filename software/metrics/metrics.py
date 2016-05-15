@@ -117,6 +117,9 @@ class Shared(object):
         self.counters = Counter()
         self.logger = logging.getLogger('shared')
 
+        self.counters['api.requests'] = 0
+        self.counters['api.exceptions'] = 0
+
 shared = Shared()
 
 # This loads the sensor plugins in probably not a 'pythonic' way
