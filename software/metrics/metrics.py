@@ -10,6 +10,9 @@ import json
 import pkgutil
 import re
 
+from collections import Counter
+from datetime import datetime
+
 parser = argparse.ArgumentParser()
 parser.add_argument(
     '--debug',
@@ -95,20 +98,24 @@ if args.mock:
     pkg_name = re.sub('^\./', '', sensor_path)
 
 
-class Shared():
+class Shared(object):
 
-    transmit_pool_size = 1
-    metrics = Queue()
+    def __init__(self):
+        self.transmit_pool_size = 1
+        self.metrics = Queue()
 
-    sensors = []
-    sensor_instances = []
+        self.sensors = []
+        self.sensor_instances = []
 
-    sensor_threads = []
-    collector_threads = []
+        self.sensor_threads = []
+        self.collector_threads = []
 
-    number_sensors = 0
+        self.number_sensors = 0
 
-    threads = []
+        self.threads = []
+
+        self.counters = Counter()
+        self.logger = logging.getLogger('shared')
 
 shared = Shared()
 
@@ -166,11 +173,27 @@ def metric_collector():
                     headers=headers,
                     data=json_data
                 )
+
+                shared.counters['api.requests'] += 1
                 logger.debug('Response: %s' % r.content)
+
+                if metric['name'] != 'api.latency_ms':
+                    milli_s = float(r.elapsed.microseconds) / 1000
+
+                    ms_data = {
+                        'time': datetime.now().isoformat(),
+                        'name': 'api.latency_ms',
+                        'value': milli_s
+                    }
+                    shared.metrics.put_nowait(ms_data)
+                    logger.debug('Elapsed ms: %s' % milli_s)
+
                 logger.debug('Status: %s Metric: %s' % (r.status_code, metric))
                 gevent.sleep()
-            except:
-                logger.critical('Request failed')
+            except Exception, e:
+                shared.counters['api.exceptions'] += 1
+                logger.critical('Request failed api.exceptions: %s' % shared.counters['api.exceptions'])
+                logger.critical('Request failed: %s' % str(e))
                 continue
             break
 
