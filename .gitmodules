@@ -2,11 +2,11 @@
 	path = software/poky
 	url = git://git.yoctoproject.org/poky.git
 [submodule "docker/pipework"]
-	path = docker/pipework
-	url = git@github.com:jpetazzo/pipework.git
+	path = software/docker/pipework
+	url = https://github.com/jpetazzo/pipework.git
 [submodule "docker/pxe"]
-	path = docker/pxe
-	url = git@github.com:jpetazzo/pxe.git
+	path = software/docker/pxe
+	url = https://github.com/jpetazzo/pxe.git
 [submodule "software/u-boot"]
 	path = software/u-boot
 	url = git://git.denx.de/u-boot.git
