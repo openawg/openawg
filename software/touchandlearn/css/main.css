@@ -1,3 +1,8 @@
+body { background:#aaa; margin:0 }
+svg {
+  display:block; border:1px solid #ccc; position:absolute;
+  top:10%; left:5%; width:90%; height:85%; background:#eee;
+}
 body .modal-dialog {
-width: 726px;
+  width: 1500px;
 }
