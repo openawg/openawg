@@ -1,8 +1,10 @@
 $(document).ready(function(){
-  $('#rect1').click(function(){
+  $('.st21').click(function(){
     bootbox.dialog({
+      animate: false,
+      backdrop: false,
       title: "Video 1",
-      message: '<iframe width="696" height="391" src="https://www.youtube.com/embed/y2-uaPiyoxc" frameborder="0" allowfullscreen></iframe>'
+      message: '<iframe width="696" height="391" src="https://www.youtube.com/embed/y2-uaPiyoxc?autoplay=1" frameborder="0" allowfullscreen></iframe>'
     });
   });
 
